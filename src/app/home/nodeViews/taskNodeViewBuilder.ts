@@ -12,8 +12,15 @@ export class TaskNodeViewBuilder{
                 dom: componentRef.location.nativeElement,
                 setSelection: (anchor, head) => {
                 },
-                stopEvent: () => { 
-                    return true;
+                stopEvent: e => {
+                    const isDragging = event.type.indexOf('drag') !== -1;
+                    const isMouseDown = event.type === "mousedown";
+                    const isDrop = event.type === 'drop';
+                    const shouldStop = !isDragging && !isMouseDown && !isDrop;
+                    if(shouldStop){
+                        console.log('stop', event);
+                    }
+                    return shouldStop;
                 },
                 update: newNode => {
                     return false;

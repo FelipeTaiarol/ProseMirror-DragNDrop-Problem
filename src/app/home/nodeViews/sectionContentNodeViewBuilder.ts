@@ -12,18 +12,22 @@ export class SectionContentNodeViewBuilder{
             return {
                 dom: instance.sectionContent,
                 contentDOM: instance.proseMirrorContent,
-                selectNode: () => {
-                    console.log('selectNode');                                                            
+                selectNode: () => {                                                         
                 },
                 stopEvent: () => {                                     
-                    return true;
+                    const isDragging = event.type.indexOf('drag') !== -1;
+                    const isMouseDown = event.type === "mousedown";
+                    const isDrop = event.type === 'drop';
+                    const shouldStop = !isDragging && !isMouseDown && !isDrop;
+                    if(shouldStop){
+                        console.log('stop', event);
+                    }
+                    return shouldStop;
                 },
-                ignoreMutation: mutation => {
-                    console.log('mutation', mutation);                    
+                ignoreMutation: mutation => {                  
                     return true;
                 },
                 update: node => {
-                    console.log('update', node);
                     return false;
                 },
                 destroy: () => {

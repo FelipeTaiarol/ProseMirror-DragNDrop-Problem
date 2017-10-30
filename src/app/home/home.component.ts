@@ -46,8 +46,8 @@ export class HomeComponent {
               editorView.updateState(newState);
           },
           nodeViews: {
-            // task: this.taskNodeViewBuilder.buildNodeView(),
-            // sectionContent: this.sectionContentNodeViewBuilder.buildNodeView()
+            task: this.taskNodeViewBuilder.buildNodeView(),
+            sectionContent: this.sectionContentNodeViewBuilder.buildNodeView()
           }
       });
       return editorView;
