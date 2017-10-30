@@ -13,14 +13,17 @@ export class SectionContentNodeViewBuilder{
                 dom: instance.sectionContent,
                 contentDOM: instance.proseMirrorContent,
                 selectNode: () => {
+                    console.log('selectNode');                                                            
                 },
-                stopEvent: () => { 
+                stopEvent: () => {                                     
                     return true;
                 },
                 ignoreMutation: mutation => {
+                    console.log('mutation', mutation);                    
                     return true;
                 },
                 update: node => {
+                    console.log('update', node);
                     return false;
                 },
                 destroy: () => {
