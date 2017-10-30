@@ -3,13 +3,17 @@ import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter, trigge
 @Component({
     selector: 'ruum-task',
     template: `
-        <div>
+        <div class="task">
             <div>{{id}}</div>
             <div>{{description}}</div>
        </div>
     `,
     styles: [`
-
+        .task{
+            background: red;
+            color: white;
+            width: 200px;
+        }
     `],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

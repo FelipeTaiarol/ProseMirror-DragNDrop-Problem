@@ -6,8 +6,15 @@ npm start
 
 sever will be running on: http://localhost:3000/
 
-## Reproducing error.
+It is possible to drag and drop tasks without any NodeView.
 
-It is not possible to drag and drop the task (red retangle).
+If the task or the sectionContent is rendered using a nodeView it doesn't work.
 
-comment out line 50 of home.component. Now it is possible to drag.
+## Reproducing error 1 - Task node view.
+
+uncomment line 49 of home.component.
+
+## Reproducing error 2 - SectionContent node view.
+
+uncomment line 50 of home.component.
+
