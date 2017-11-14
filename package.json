@@ -106,7 +106,7 @@
     "prosemirror-model": "^1.0.0",
     "prosemirror-state": "^1.0.0",
     "prosemirror-transform": "^1.0.0",
-    "prosemirror-view": "^1.0.0",
+    "prosemirror-view": "^1.0.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.3",
     "zone.js": "~0.8.18"
