@@ -1,5 +1,5 @@
 import { Injectable, Injector, ComponentFactoryResolver, ComponentRef } from '@angular/core';
-import { TaskComponent } from './task.component';
+import { TaskComponent } from './../../tasks/task.component';
 
 @Injectable()
 export class TaskNodeViewBuilder{
@@ -12,15 +12,23 @@ export class TaskNodeViewBuilder{
                 dom: componentRef.location.nativeElement,
                 setSelection: (anchor, head) => {
                 },
-                stopEvent: e => {
-                    const isDragging = event.type.indexOf('drag') !== -1;
-                    const isMouseDown = event.type === "mousedown";
+                stopEvent: event => { 
                     const isDrop = event.type === 'drop';
-                    const shouldStop = !isDragging && !isMouseDown && !isDrop;
-                    if(shouldStop){
-                        console.log('stop', event);
+                    let stopEvent;
+                    if(isDrop){
+                        stopEvent = false;
+                    }else{
+                        const isOnComponent = event.target === componentRef.location.nativeElement;
+                        if(isOnComponent){
+                            const isDragging = event.type.indexOf('drag') !== -1;
+                            const isMouseDown = event.type === "mousedown";
+                            stopEvent = !(isDragging || isMouseDown);
+                        }else{
+                            stopEvent = true;
+                        }
                     }
-                    return shouldStop;
+                    console.log(`stop ${event.type}? ${stopEvent}`);
+                    return stopEvent;
                 },
                 update: newNode => {
                     return false;

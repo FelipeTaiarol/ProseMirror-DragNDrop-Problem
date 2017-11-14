@@ -24,20 +24,16 @@ import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
 import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
-import { SectionContentNodeViewBuilder } from './home/nodeViews/sectionContentNodeViewBuilder';
-import { TaskComponent } from './home/nodeViews/task.component';
-import { TaskNodeViewBuilder } from './home/nodeViews/taskNodeViewBuilder';
-import { SectionsService } from './home/sections.service';
+import { TaskComponent } from './home/tasks/task.component';
+import { TaskNodeViewBuilder } from './home/canvas/nodeViews/taskNodeViewBuilder';
+import { CanvasComponent } from './home/canvas/canvas.component';
 
 import '../styles/styles.scss';
-import '../styles/headings.css';
 
 // Application wide providers
 const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
   AppState
 ];
 
@@ -55,7 +51,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     HomeComponent,
-    TaskComponent
+    TaskComponent,
+    CanvasComponent
   ],
   /**
    * Import Angular's modules.
@@ -76,9 +73,7 @@ type StoreType = {
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    TaskNodeViewBuilder,
-    SectionContentNodeViewBuilder,
-    SectionsService
+    TaskNodeViewBuilder
   ]
 })
 export class AppModule {

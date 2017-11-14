@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home';
-import { DataResolver } from './app.resolver';
-import { TaskComponent } from './home/nodeViews/task.component';
+import { TaskComponent } from './home/tasks/task.component';
 
 export const ROUTES: Routes = [
   { path: '',      component: HomeComponent },

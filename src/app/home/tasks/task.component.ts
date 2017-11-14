@@ -9,6 +9,9 @@ import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter, trigge
        </div>
     `,
     styles: [`
+        :host{
+            display: block;
+        }
         .task{
             background: red;
             color: white;
